@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Ending — A Beauty Branding Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2E7CE;
+    --bg2:#FAF2E1;
+    --cream:#2B2620;
+    --cream-soft:rgba(43,38,32,0.64);
+    --cream-faint:rgba(43,38,32,0.4);
+    --line:rgba(43,38,32,0.16);
+    --rust:#BD5B34;
+    --amber:#D9A441;
+    --pool:#4C7C86;
+    --olive:#83815A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Courier Prime',monospace;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  /* film grain overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:26px 32px;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+  }
+  .logo-badge{
+    width:38px;height:38px;
+    background:var(--cream);
+    color:var(--bg);
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Archivo Black',sans-serif;
+    font-weight:400;
+    font-size:12px;
+    letter-spacing:-.02em;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:60px 32px 100px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .ghost-stack{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    pointer-events:none;
+    z-index:0;
+  }
+  .ghost-stack span{
+    font-family:'Special Elite',cursive;
+    font-size:clamp(20px,4vw,38px);
+    color:rgba(237,227,207,0.05);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  .hero-inner{position:relative;z-index:1;}
+
+  .eyebrow{
+    font-size:11.5px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:26px;
+  }
+  h1.title{
+    font-family:'Archivo Black',sans-serif;
+    font-weight:400;
+    font-size:clamp(38px,7vw,74px);
+    line-height:1.02;
+    letter-spacing:-.15em;
+    margin:0 0 20px;
+    text-transform:uppercase;
+  }
+  h1.title .end-mark{
+    color:var(--rust);
+  }
+  .kicker{
+    font-size:13px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+    margin:0 0 36px;
+  }
+  .hero p.lede{
+    max-width:540px;
+    margin:0 auto;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--cream-soft);
+  }
+
+  .pillars-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:38px;
+  }
+  .pill{
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:9px 18px;
+    border:1px solid var(--line);
+    background:var(--bg2);
+    color:var(--cream-soft);
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    padding:0 32px;
+  }
+  .divider .line{height:1px;width:70px;background:var(--line);}
+  .divider .mark{
+    font-size:11px;
+    letter-spacing:.1em;
+    color:var(--olive);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:80px 0;}
+  .section-head{max-width:640px;margin:0 auto 52px;}
+  .section-eyebrow{
+    font-size:11px;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:16px;
+  }
+  h2.section-title{
+    font-family:'Archivo Black',sans-serif;
+    font-weight:400;
+    font-size:clamp(24px,3.6vw,34px);
+    margin:0 0 16px;
+    line-height:1.2;
+    letter-spacing:-.115em;
+    text-transform:uppercase;
+  }
+  .section-sub{
+    color:var(--cream-soft);
+    font-size:14.5px;
+    line-height:1.8;
+    max-width:480px;
+  }
+
+  /* ---------- PILLARS ---------- */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .pillar-card{
+    background:var(--bg2);
+    padding:38px 28px;
+  }
+  .pillar-num{
+    font-size:11px;
+    color:var(--pool);
+    display:block;
+    margin-bottom:16px;
+  }
+  .pillar-card h3{
+    font-family:'Special Elite',cursive;
+    font-weight:400;
+    font-size:18px;
+    margin:0 0 12px;
+    text-transform:uppercase;
+  }
+  .pillar-card p{
+    font-size:13.5px;
+    line-height:1.75;
+    color:var(--cream-soft);
+    margin:0;
+  }
+
+  /* ---------- SHOOTING DAY ---------- */
+  .day-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 60px;
+    border-top:1px solid var(--line);
+  }
+  .day-item{
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    gap:20px;
+    align-items:baseline;
+  }
+  .day-num{
+    font-size:12.5px;
+    color:var(--rust);
+    flex-shrink:0;
+    width:44px;
+  }
+  .day-copy h4{
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin:0 0 8px;
+  }
+  .day-copy p{
+    font-size:13px;
+    line-height:1.7;
+    color:var(--cream-soft);
+    margin:0;
+  }
+
+  /* ---------- BRANDS ---------- */
+  .brand-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .brand-card{background:var(--bg2);padding:24px;}
+  .brand-frame{
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:var(--cream-faint);
+    display:block;
+    margin-bottom:10px;
+  }
+  .brand-name{
+    font-family:'Special Elite',cursive;
+    font-weight:400;
+    font-size:18px;
+    margin:0 0 16px;
+    text-transform:uppercase;
+  }
+  .photo-slot{
+    width:100%;
+    aspect-ratio:16/9;
+    border:1px dashed var(--line);
+    background:var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    overflow:hidden;
+    transition:border-color .2s ease;
+  }
+  .photo-slot:hover{border-color:var(--rust);}
+  .photo-slot.filled{border-style:solid;cursor:default;}
+  .photo-slot.filled:hover{border-color:var(--line);}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-slot input{display:none;}
+  .photo-slot .empty{
+    font-size:10.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--cream-faint);
+    text-align:center;
+  }
+  .photo-slot .empty .plus{
+    display:block;
+    font-family:'Special Elite',cursive;
+    font-size:22px;
+    margin-bottom:6px;
+    color:var(--rust);
+  }
+
+  footer{
+    text-align:center;
+    padding:50px 32px 70px;
+    color:var(--cream-faint);
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  footer .logo-badge{margin:0 auto 18px;}
+
+  @media (max-width:820px){
+    .pillars{grid-template-columns:1fr;}
+    .day-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .brand-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="logo-badge">END.</div>
+  <span>Workshop — 2026</span>
+</div>
+
+<div class="hero">
+  <div class="ghost-stack">
+    <span>Curation</span>
+    <span>Portfolio</span>
+    <span>Content</span>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow">End International — Workshop Series</div>
+    <h1 class="title">Beautiful <span class="end-mark">END.</span>ing</h1>
+    <div class="kicker">A Beauty Branding Workshop</div>
+    <p class="lede">A one-day, hands-on session in feed curation, portfolio building, and premium content creation — for creatives ready to shoot at the level brands actually pay for.</p>
+
+    <div class="pillars-row">
+      <span class="pill">Feed Curation</span>
+      <span class="pill">Portfolio Building</span>
+      <span class="pill">Premium Content Creation</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider" style="padding-top:56px;">
+  <span class="line"></span>
+  <span class="mark">— 01 —</span>
+  <span class="line"></span>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">What This Is</div>
+      <h2 class="section-title">More than a shoot day</h2>
+      <p class="section-sub">Beautiful Ending is a working session — you leave with skills, a sharpened eye, and content built for your book.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar-card">
+        <span class="pillar-num">01.</span>
+        <h3>Curate Your Feed</h3>
+        <p>Hands-on guidance shaping a cohesive, brand-ready aesthetic — a feed that reads as a point of view, not a scattered highlight reel.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">02.</span>
+        <h3>Build Your Portfolio</h3>
+        <p>Walk away with a real body of work — the kind of content that anchors a media kit and gets you into rooms with brands.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">03.</span>
+        <h3>Create At A Premium Level</h3>
+        <p>Learn the direction, lighting, and styling behind content brands actually license — then practice making it yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <span class="line"></span>
+  <span class="mark">— 02 —</span>
+  <span class="line"></span>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">The Day</div>
+      <h2 class="section-title">What we're shooting</h2>
+      <p class="section-sub">One Airbnb, six zones, a full day of content — sorted by where we set up and what we capture there.</p>
+    </div>
+
+    <div class="day-list">
+      <div class="day-item">
+        <span class="day-num">F.01</span>
+        <div class="day-copy">
+          <h4>Poolside</h4>
+          <p>Flatlays, submerged product shots, application candids, and styled still life by the water.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">F.02</span>
+        <div class="day-copy">
+          <h4>Bathroom</h4>
+          <p>Mirror application, counter flatlays, and macro texture work — the "getting ready" moments.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">F.03</span>
+        <div class="day-copy">
+          <h4>Kitchen</h4>
+          <p>Product paired with food and drink, clean countertop flatlays, hands-only prep shots.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">F.04</span>
+        <div class="day-copy">
+          <h4>Bedroom</h4>
+          <p>Soft morning light, nightstand still life, and lifestyle moments styled on linens.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">F.05</span>
+        <div class="day-copy">
+          <h4>Outdoor / Golden Hour</h4>
+          <p>Portraits with product in hand and clean negative-space shots built for a logo overlay.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <span class="day-num">F.06</span>
+        <div class="day-copy">
+          <h4>Macro &amp; Hands-Only</h4>
+          <p>Application close-ups, texture swatches, and product-in-hand detail — shootable anywhere, anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <span class="line"></span>
+  <span class="mark">— 03 —</span>
+  <span class="line"></span>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Reference Points</div>
+      <h2 class="section-title">Brands we're inspired by</h2>
+      <p class="section-sub">The tone, styling, and content strategy we're pulling from as we build the shot list.</p>
+    </div>
+
+    <div class="brand-grid">
+      <div class="brand-card">
+        <span class="brand-frame">REF.01</span>
+        <div class="brand-name">Rare Beauty</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+      <div class="brand-card">
+        <span class="brand-frame">REF.02</span>
+        <div class="brand-name">Rhode</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+      <div class="brand-card">
+        <span class="brand-frame">REF.03</span>
+        <div class="brand-name">Topicals</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+      <div class="brand-card">
+        <span class="brand-frame">REF.04</span>
+        <div class="brand-name">Prada Beauty</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+      <div class="brand-card">
+        <span class="brand-frame">REF.05</span>
+        <div class="brand-name">818 Tequila</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+      <div class="brand-card">
+        <span class="brand-frame">REF.06</span>
+        <div class="brand-name">Bottega Veneta</div>
+        <label class="photo-slot">
+          <span class="empty"><span class="plus">+</span>Add photo</span>
+          <input type="file" accept="image/*">
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-badge">END.</div>
+  Beautiful Ending — End International
+</footer>
+
+<script>
+  document.querySelectorAll('.photo-slot input[type="file"]').forEach(function(input){
+    input.addEventListener('change', function(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt){
+        const slot = input.closest('.photo-slot');
+        let img = slot.querySelector('img');
+        if(!img){
+          img = document.createElement('img');
+          slot.insertBefore(img, slot.firstChild);
+        }
+        img.src = evt.target.result;
+        slot.classList.add('filled');
+        const empty = slot.querySelector('.empty');
+        if(empty) empty.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
+
+</body>
+</html>
